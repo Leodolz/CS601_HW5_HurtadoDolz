@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- This links to the css stylesheet created externally -->
+    <link rel="stylesheet" href="https://cs-601-hw5-hurtado-dolz.glitch.me/style.css">
+
+    <!-- This is the tab title -->
+    <title>Academic history</title>
+</head>
+<body>
+<!-- Overlay section which will have its own css style -->
+<section id="overlay">
+    <!-- Loading icon which will have dimensions and animations on css -->
+    <p class="loader"></p>
+</section>
+<main>
+    <!-- Header of the page -->
+    <h1>Academic history page</h1>
+    <!-- Horizontal line -->
+    <hr>
+    <!-- Hidden table display style as we will have an empty table otherwise, this will be changed when loading data -->
+    <table id="academicTable" style="display: none">
+        <thead>
+        <tr> <!-- First row composed of headers -->
+            <th scope="col">School</th>
+            <th scope="col">Program / Major</th>
+            <th scope="col">Type</th>
+            <th scope="col">Year Conferred</th>
+        </tr>
+        </thead>
+        <!-- The body of the table which will be populated when fetched data -->
+        <tbody id="academicTableBody">
+        </tbody>
+    </table>
+    <!-- Label indicating what to do now with the page -->
+    <p id="renderItemsLabel">To render items please click on the button below! </p>
+    <!-- The start program button either first time or again -->
+    <button id="render-data-button" onclick="loadData()">Start</button>
+</main>
+<!-- Here we link this webpage with the js file that is written externally -->
+<script src="https://cs-601-hw5-hurtado-dolz.glitch.me/education.js"></script>
+</body>
+</html>

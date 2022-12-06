@@ -1,0 +1,195 @@
+/* This is formatting the entire webpage background using gradient */
+body {
+    background: linear-gradient(to bottom right, lightgreen, blue) fixed;
+}
+
+/* We want the main display  to be shown in the center with another background*/
+main {
+    background: #e9f3ed;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    /* We set max width and height for this centered item */
+    max-width: 500px;
+    max-height: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+/* Some specific styling to all the button elements in this page */
+button {
+    /* No specific outlines in this button rather than its background color */
+    border: none;
+    outline: 0;
+    /* Displaying the button in a specific style */
+    display: inline-block;
+    /* Margins and padding for more appealing style */
+    margin-top: 15px;
+    padding: 8px;
+    /* Have emphasized difference between background and font color for button to be better appealing */
+    color: white;
+    background-color: #19725e;
+    /* The text is centered */
+    text-align: center;
+    /* When hoovering the button, the cursor will show the pointer */
+    cursor: pointer;
+    /* The relative width of the button is 100% of the parent item */
+    width: 100%;
+    /* Specific font size */
+    font-size: 18px;
+}
+
+
+button:hover {
+    /* For more appealing when about to click button */
+    opacity: 0.7;
+}
+
+#overlay {
+    /* Position should cover from the beginnings of the display and to be fixed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Not shown until javascript activates it when loading */
+    display: none;
+    /* Full width (cover the whole page) */
+    width: 100%;
+    /* Full height (cover the whole page) */
+    height: 100%;
+    /* Black background with opacity to make it seem as overlaying content */
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Style the loading icon, give it shape, size and animation */
+.loader {
+    /* Give the circle a border with a background which is going to be the visible part */
+    border: 16px solid #f3f3f3;
+    /* Make radius of 50% for it to be a complete circle, anything less would be a rounded square */
+    border-radius: 50%;
+    /* The border top is the one which will remain static while the circle spins, giving a similar appearance of loading */
+    border-top: 16px solid #3498db;
+    /* Dimensions of this icon */
+    width: 120px;
+    height: 120px;
+    /* Flex display and horizontal auto margins for it to be centered */
+    display: flex;
+    margin: 15em auto auto;
+    /* Animation for the loading icon */
+    animation: spin 2s linear infinite;
+}
+
+/* Animation style for the loading icon */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Style for the table in general */
+table {
+    /* The font family for each entry either as header or body */
+    font-family: "Century Gothic", CenturyGothic, sans-serif;
+    /* Borders and margins */
+    border-collapse: collapse;
+    margin-right: auto;
+    margin-left: auto;
+    /* We want the table to cover a lot but not all to make it visible that it is centered */
+    width: 95%;
+}
+
+
+tr {
+    background-color: #e7f6ff;
+    border: 1px solid #000000;
+    display: block;
+    margin-bottom: 1em;
+}
+
+/* For mobile we don't display thead, we will modify this when we add @media */
+thead {
+    display: none;
+}
+
+/* Relative width defined for images in a table cell */
+td img {
+    width: 10em;
+}
+
+/* Nice formatting for a column header */
+th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+/* Common formatting for both elements th and td */
+th, td {
+    border-style: none;
+    border-color: black;
+    padding: 1.125em 0.625em;
+    text-align: center;
+    display: table-cell;
+}
+
+/* Format for table cells values */
+td {
+    border-bottom-color: #e7f6ff;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+}
+
+/*
+    Synthetic pre-content for every td column to show the data-label attribute
+    for every td element, this is for a nice format in mobile devices and have
+    an easier table-like visualization in smaller screens
+ */
+td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* For the last table data, we don't use border at the bottom */
+td:last-child {
+    border-bottom: 0;
+}
+
+
+@media (min-width: 800px) {
+    /* Below we format tables for a behavior more appealing to laptops and computers */
+
+    /* Every table row should be displayed as default instead of mobile-like */
+    tr {
+        display: table-row;
+        margin-bottom: 0;
+    }
+
+    /* We now display table headers for this type of @media */
+    thead {
+        display: table-header-group;
+    }
+
+    /* We now use a border style for all th and td elements */
+    th, td {
+        border-style: solid;
+    }
+
+    /* For table columns we format different colors and sizes */
+    td {
+        border-bottom-color: #000;
+        display: table-cell;
+        font-size: medium;
+        text-align: center;
+    }
+
+    /*
+        As we are now visualizing as a normal table, we do not display the data-label attribute
+        for each column, as our table is more conventional for this @media
+     */
+    td::before {
+        display: none;
+    }
+}
